@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "gdal": "cpp",
+        "stringutils": "cpp",
+        "glutils": "cpp"
+    }
+}

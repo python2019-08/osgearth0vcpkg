@@ -1,0 +1,31 @@
+set(VCPKG_TARGET_ARCHITECTURE arm64)
+set(VCPKG_CRT_LINKAGE dynamic)
+set(VCPKG_LIBRARY_LINKAGE static)
+set(VCPKG_CMAKE_SYSTEM_NAME Android)
+set(VCPKG_CMAKE_SYSTEM_VERSION 28)
+set(VCPKG_MAKE_BUILD_TRIPLET "--host=aarch64-linux-android")
+set(VCPKG_CMAKE_CONFIGURE_OPTIONS -DANDROID_ABI=arm64-v8a)
+
+
+set(ENABLE_ASAN   FALSE)
+
+if(ENABLE_ASAN)
+    message(FATAL_ERROR "ERROR:....triplets/arm64-android.cmake: ENABLE_ASAN=TRUE....")
+else()       
+	message(STATUS "HAHA....triplets/arm64-android.cmake: ENABLE_ASAN=FALSE....")
+	# use standard  android toolchain file
+	set(VCPKG_CHAINLOAD_TOOLCHAIN_FILE "/home/abner/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake")
+                                    
+	set(VCPKG_C_FLAGS "-DNO_CPL_MULTIPROC_PTHREAD -fPIC")
+	set(VCPKG_CXX_FLAGS "-DNO_CPL_MULTIPROC_PTHREAD -fPIC")
+
+	set(VCPKG_CMAKE_C_FLAGS "-fPIC")
+	set(VCPKG_CMAKE_CXX_FLAGS "-fPIC")
+
+	# 强制注入 -fPIC
+	set(VCPKG_CMAKE_CONFIGURE_OPTIONS ${VCPKG_CMAKE_CONFIGURE_OPTIONS}
+	    -DCMAKE_C_FLAGS=-fPIC
+	    -DCMAKE_CXX_FLAGS=-fPIC
+	)
+
+endif()	

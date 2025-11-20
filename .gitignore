@@ -1,0 +1,9 @@
+build*/ 
+tmp*
+b*.txt
+data/osgdata340/
+ 
+3rd/osg
+3rd/osgearth
+
+docs/data-process-01.md
