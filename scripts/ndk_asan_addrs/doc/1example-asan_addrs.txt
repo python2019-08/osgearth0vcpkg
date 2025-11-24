@@ -1,0 +1,210 @@
+2025-11-20 15:34:26.085 28304-28347 AndroiOearth01    com.oearth.androearth0vcpkg    I  Warning: PointSprite::apply(State&) - not supported.
+2025-11-20 15:34:26.137 28507-28507 DEBUG   pid-28507  A  pid: 28304, tid: 28304, name: ndroearth0vcpkg  >>> com.oearth.androearth0vcpkg <<<
+2025-11-20 15:34:26.137 28507-28507 DEBUG   pid-28507  A  Abort message: '=================================================================
+		==28304==ERROR: AddressSanitizer: heap-use-after-free on address 0x0056ee3f0218 at pc 0x007a334fe180 bp 0x007fc0811930 sp 0x007fc0811928
+		READ of size 4 at 0x0056ee3f0218 thread T0 (ndroearth0vcpkg)
+===============================================
+"0x606917c"
+"0x6067f18"
+"0x6062f34"
+"0x60299d4"
+"0x602992c"
+"0x5053698"
+"0x5748a88"
+"0x5557af4"
+"0x60298f4"
+"0x478b400"
+"0x5396c78"
+"0x5557af4"
+"0x60298f4"
+"0x478b400"
+"0x5396b68"
+"0x5557af4"
+"0x60298f4"
+"0x478b400"
+"0x5748a88"
+"0x5557af4"
+"0x60298f4"
+"0x478b400"
+"0x5748a88"
+"0x4ff84d4"
+"0x5557af4"
+"0x60298f4"
+"0x5815714"
+"0x531dd50"
+"0x480e854"
+"0x481edd0"
+"0x472c078"
+"0x4730f00"
+		
+		0x0056ee3f0218 is located 24 bytes inside of 23040-byte region [0x0056ee3f0200,0x0056ee3f5c00)
+		freed by thread T21 (GLThread 17) here:
+===============================================
+			#0 0x7b2f9f3ba4  (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libclang_rt.asan-aarch64-android.so+0xf2ba4) (BuildId: d2089f24857cf6bfee934a5c1e8395bab0e414b6)
+"0x46ea088"
+"0x46ea038"
+"0x46e9fdc"
+"0x579c6d0"
+"0x579c150"
+"0x579cccc"
+"0x579ca30"
+"0x57967b4"
+"0x5796808"
+"0x58cc430"
+"0x58cc7a8"
+"0x56373a4"
+"0x56380a4"
+"0x5385db4"
+"0x58cc430"
+"0x58cc7a8"
+"0x4966668"
+"0x5748448"
+"0x574873c"
+"0x5a9caf0"
+"0x57f9b44"
+"0x535cc88"
+"0x58cc430"
+"0x58cc7a8"
+"0x538cc38"
+"0x538ce80"
+"0x58cc430"
+"0x58cc7a8"
+"0x47b7efc"
+		
+		previously allocated by thread T36 here:
+===============================================
+			#0 0x7b2f9f32fc  (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libclang_rt.asan-aarch64-android.so+0xf22fc) (BuildId: d2089f24857cf6bfee934a5c1e8395bab0e414b6)
+"0x46e7a2c"
+"0x46e79b4"
+"0x57990a8"
+"0x5798e20"
+"0x5798120"
+"0x5790f80"
+"0x5790618"
+"0x5794b70"
+"0x5795ca8"
+"0x5674f18"
+"0x5385330"
+"0x5359484"
+"0x5358fb8"
+"0x538bbac"
+"0x538a4ec"
+"0x5399ce0"
+"0x53a9c0c"
+"0x4a10dbc"
+"0x4a103d0"
+			#20 0x7b2f9e383c  (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libclang_rt.asan-aarch64-android.so+0xe283c) (BuildId: d2089f24857cf6bfee934a5c1e8395bab0e414b6)
+			#21 0x7b30258d80  (/apex/com.android.runtime/lib64/bionic/libc.so+0x8bd80) (BuildId: b8c1d570bb79626075f724a0aeef482c)
+		
+		Thread T21 (GLThread 17) created by T0 (ndroearth0vcpkg) here:
+===============================================
+			#0 0x7b2f9d2d5c  (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libclang_rt.asan-aarch64-android.so+0xd1d5c) (BuildId: d2089f24857cf6bfee934a5c1e8395bab0e414b6)
+			#1 0x7aab7b40ac  (/apex/com.android.art/lib64/libart.so+0x5a70ac) (BuildId: ba974b198c8d2ea23d09a0519a0d3fc3)
+			#2 0x7aab6d2f98  (/apex/com.android.art/lib64/libart.so+0x4c5f98) (BuildId: ba974b198c8d2ea23d09a0519a0d3fc3)
+			#3 0x709bbcfc  (/apex/com.android.art/javalib/arm64/boot.oat+0x87cfc) (BuildId: b77de09b67db1d38581389c0b201cddde04733b2)
+			#4 0x7aab12f79b  (/apex/com.android.art/javalib/core-oj.jar+0x3e079b)
+			#5 0x7aab514218  (/apex/com.android.art/lib64/libart.so+0x307218) (BuildId: ba974b198c8d2ea23d09a0519a0d3fc3)
+		
+		Thread T36 created by T21 (GLThread 17) here:
+===============================================
+			#0 0x7b2f9d2d5c  (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libclang_rt.asan-aarch64-android.so+0xd1d5c) (BuildId: d2089f24857cf6bfee934a5c1e8395bab0e414b6)
+"0x4a0f7cc"
+"0x4a0d3c8"
+"0x4a0939c"
+"0x5394658"
+"0x5392154"
+"0x5396d40"
+"0x5815558"
+"0x478b400"
+"0x5748a88"
+"0x5815558"
+"0x478b400"
+"0x531492c"
+"0x5557af4"
+"0x5fc4f38"
+"0x5fc7d14"
+"0x5815714"
+"0x531dd50"
+"0x5748a88"
+"0x5557af4"
+"0x5fc4f38"
+"0x5fc7d14"
+"0x478b400"
+"0x5748a88"
+"0x5557af4"
+"0x5fc4f38"
+"0x5fc7d14"
+"0x478b400"
+"0x4c756e4"
+"0x5557af4"
+"0x5557858"
+"0x4cd2ea4"
+"0x55588ac"
+"0x5557704"
+"0x4788c34"
+"0x55588ac"
+"0x5fc4f28"
+"0x5fc7d14"
+"0x478b400"
+"0x5748a88"
+"0x53d6ccc"
+"0x53f43b8"
+"0x5557af4"
+"0x5fc4f38"
+"0x5fc7d14"
+"0x478b400"
+"0x5748a88"
+"0x5557af4"
+"0x5fc4f38"
+"0x5fc7d14"
+"0x478b400"
+"0x5748a88"
+"0x5557af4"
+"0x652c684"
+"0x652a924"
+"0x65147d0"
+"0x6515878"
+"0x5714dbc"
+"0x6619b04"
+"0x6616cac"
+"0x4707c80"
+"0x472b7f4"
+"0x4730e44"
+			#63 0x7a3c936710  (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/oat/arm64/base.odex+0x20710)
+			#64 0x7a3d246f83  (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/oat/arm64/base.odex+0x930f83)
+		
+"0x606917c"
+		Shadow bytes around the buggy address:
+			0x0056ee3eff80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0000: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+		=>0x0056ee3f0200: fd fd fd[fd]fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0280: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0300: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0380: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0400: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0480: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+		Shadow byte legend (one shadow byte represents 8 application bytes):
+			Addressable:     00
+			Partially addressable: 01 02 03 04 05 06 07 
+			Heap left redzone:    fa
+			Freed heap region:    fd
+			Stack left redzone:   f1
+			Stack mid redzone:    f2
+			Stack right redzone:  f3
+			Stack after return:   f5
+			Stack use after scope:   f8
+			Global redzone:    f9
+			Global init order:    f6
+			Poisoned by user:  f7
+			Container overflow:   fc
+			Array cookie:   ac
+			Intra object redzone: bb
+			ASan internal:     fe
+			Left alloca redzone:  ca
+			Right alloca redzone: cb
+		'
+2025-11-20 15:34:26.139 28507-28507 DEBUG   pid-28507  A  #01 pc 000000000006c5b4  /data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libclang_rt.asan-aarch64-android.so (BuildId: d2089f24857cf6bfee934a5c1e8395bab0e414b6)
+---------------------------- PROCESS ENDED (28304) for package com.oearth.androearth0vcpkg ----------------------------
