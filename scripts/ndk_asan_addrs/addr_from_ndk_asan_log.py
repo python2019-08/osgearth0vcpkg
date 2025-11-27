@@ -1,5 +1,7 @@
 import os 
-
+# 从 asan log中解析出 地址.
+# 输入的aAsanLogPath 的示例见 doc/0example-ndk_asan_log.txt
+# 输出的aAsanAddrsPath 的示例见 doc/1example-asan_addrs.txt
 def parseAsanAddrs(aAsanLogPath,aAsanAddrsPath):
     lines = []
     with open(aAsanLogPath, "r") as file:

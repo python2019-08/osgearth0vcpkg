@@ -1,3 +1,8 @@
+2025-11-20 15:34:26.137 28507-28507 DEBUG   pid-28507  A  pid: 28304, tid: 28304, name: ndroearth0vcpkg  >>> com.oearth.androearth0vcpkg <<<
+2025-11-20 15:34:26.137 28507-28507 DEBUG   pid-28507  A  Abort message: '=================================================================
+		==28304==ERROR: AddressSanitizer: heap-use-after-free on address 0x0056ee3f0218 at pc 0x007a334fe180 bp 0x007fc0811930 sp 0x007fc0811928
+		READ of size 4 at 0x0056ee3f0218 thread T0 (ndroearth0vcpkg)
+
 地址: 0x606917c
 void osg::KdTree::intersect<osg::TemplatePrimitiveFunctor<LineSegmentIntersectorUtils::IntersectFunctor<osg::Vec3d, double>>>(osg::TemplatePrimitiveFunctor<LineSegmentIntersectorUtils::IntersectFunctor<osg::Vec3d, double>>&, osg::KdTree::KdNode const&) const at /home/abner/abner2/zdev/nv/osgearth0vcpkg/3rd/osg/include/osg/KdTree:152
 ```cpp
@@ -856,3 +861,42 @@ osg::ref_ptr<osg::Node>::~ref_ptr() at /home/abner/abner2/zdev/nv/osgearth0vcpkg
             _ptr = 0; 
         }
 ```        
+
+
+===============================================
+
+		SUMMARY: AddressSanitizer: heap-use-after-free (/data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libandroioearth01.so+0x606917c) (BuildId: bb081a4b948d402247eaa20d9c1b8b3ea2a4dd3a) 
+		Shadow bytes around the buggy address:
+			0x0056ee3eff80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0000: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+			0x0056ee3f0180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+		=>0x0056ee3f0200: fd fd fd[fd]fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0280: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0300: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0380: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0400: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+			0x0056ee3f0480: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+		Shadow byte legend (one shadow byte represents 8 application bytes):
+			Addressable:     00
+			Partially addressable: 01 02 03 04 05 06 07 
+			Heap left redzone:    fa
+			Freed heap region:    fd
+			Stack left redzone:   f1
+			Stack mid redzone:    f2
+			Stack right redzone:  f3
+			Stack after return:   f5
+			Stack use after scope:   f8
+			Global redzone:    f9
+			Global init order:    f6
+			Poisoned by user:  f7
+			Container overflow:   fc
+			Array cookie:   ac
+			Intra object redzone: bb
+			ASan internal:     fe
+			Left alloca redzone:  ca
+			Right alloca redzone: cb
+		'
+2025-11-20 15:34:26.139 28507-28507 DEBUG   pid-28507  A  #01 pc 000000000006c5b4  /data/app/~~d3K_sN68n6UQran2Bv1vcg==/com.oearth.androearth0vcpkg-DoOK1hnmeNdQjr8MgZHtCw==/lib/arm64/libclang_rt.asan-aarch64-android.so (BuildId: d2089f24857cf6bfee934a5c1e8395bab0e414b6)
+---------------------------- PROCESS ENDED (28304) for package com.oearth.androearth0vcpkg ----------------------------
