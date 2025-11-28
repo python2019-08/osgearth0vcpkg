@@ -47,6 +47,20 @@ if(ANDROID)
     if(CMAKE_BUILD_TYPE STREQUAL "Debug")
         add_compile_options(-g -O0 -fno-omit-frame-pointer)
     endif()
+
+    # # -------------------------------
+    # # 修复 Android NDK 的 STL 初始化问题
+    # add_compile_definitions(_LIBCPP_HAS_NO_ALIGNED_ALLOCATION)
+    # add_compile_definitions(_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS)
+    # add_compile_definitions(_LIBCPP_ABI_UNSTABLE)
+    
+    # # 禁用可能有问题优化
+    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-stack-protector")
+    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-use-cxa-atexit")
+    
+    # # 强制内存对齐
+    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mllvm -asan-force-dynamic-shadow=1")    
+    # -------------------------------
 else()
     message(STATUS "^v^....ANDROID !=1")   
 endif()

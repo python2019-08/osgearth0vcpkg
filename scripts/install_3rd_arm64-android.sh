@@ -48,7 +48,7 @@ set -x
 
 # cd ${VCPKG_ROOT} && rm -fr   buildtrees/ downloads/ installed/ packages/ 
 #  /home/abner/programs/vcpkg/triplets/arm64-android.cmake
-IS_ENABLE_ASAN=0
+IS_ENABLE_ASAN=true
 TRIPLET_NAME="arm64-android"
 if [ "${IS_ENABLE_ASAN}" = "true" ]; then
        TRIPLET_NAME="arm64-android-asan"

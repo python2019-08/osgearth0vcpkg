@@ -1,4 +1,4 @@
-package com.oearth.androioearth01;
+package com.oearth.androearth0vcpkg;
 
 public class osgNativeLib {
     public static native void 		init(int width, int height);

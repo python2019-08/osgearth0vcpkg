@@ -1,4 +1,4 @@
-package com.oearth.androioearth01;
+package com.oearth.androearth0vcpkg;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,13 +15,13 @@ public class osgEarthViewer extends Activity
     static {
         //System.loadLibrary("c++_shared");  // 先加载依赖库
         //System.loadLibrary("androioearth01");  // 再加载主库
-          try {
-              // 先尝试加载 ASan 库
-              System.loadLibrary("clang_rt.asan-arm-android");
-          } catch (UnsatisfiedLinkError e) {
-              Log.w("ASAN", "ASan library load warning: " + e.getMessage());
-              // 继续执行，让 wrap.sh 处理
-          }
+        //   try { 
+        //       // 先尝试加载 ASan 库
+        //       System.loadLibrary("clang_rt.asan-arm-android"); 
+        //   } catch (UnsatisfiedLinkError e) {
+        //       Log.w("ASAN", "ASan library load warning: " + e.getMessage());
+        //       // 继续执行，让 wrap.sh 处理
+        //   }
 
 
          try {

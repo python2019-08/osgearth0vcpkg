@@ -26,8 +26,8 @@ echo "============================================================="
 is_enable_ASAN=true    # false
 isRebuild=true
 # ----
-isFinished_build_osg=false
-isFinished_build_oearth=true
+isFinished_build_osg=true
+isFinished_build_oearth=false
 # echo "============================================================="
 # ###定义要编译的 Android ABI 列表::vcpkg默认只支持"arm64-v8a"和"x86_64"。
 # ABIS=("arm64-v8a"  "x86_64"   "armeabi-v7a"  "x86" )
@@ -353,7 +353,20 @@ if [ "${isFinished_build_osg}" != "true" ] ; then
         # 依赖关系：osg -->gdal-->curl-->libpsl， 所以OSG 的 CMake 配置需要确保在
         # target_link_libraries 时包含所有 cURL 所依赖的库(osg的间接依赖库)。
         # 这通常在 CMakeLists.txt中通过 find_package(CURL)返回的导入型目标CURL::libCurl获得或直接在
-        # CMake -S -B命令中加 -DCMAKE_EXE_LINKER_FLAGS或CMAKE_SHARED_LINKER_FLAGS来添加缺失的库。​ 
+        # CMake -S -B命令中加 -DCMAKE_EXE_LINKER_FLAGS或CMAKE_SHARED_LINKER_FLAGS来添加缺失的库。​  
+        _curlLibs_array=()
+        _curlLibs_array+=("${VCPKG_installed_LN}/lib/libcurl.a")
+        _curlLibs_array+=("${VCPKG_installed_LN}/lib/libssl.a")
+        _curlLibs_array+=("${VCPKG_installed_LN}/lib/libcrypto.a")
+        _curlLibs_array+=("${VCPKG_installed_LN}/lib/libpsl.a")
+        _curlLibs_array+=("${VCPKG_installed_LN}/lib/libz.a")
+        # _curlLibs_array+=("${VCPKG_installed_LN}/lib/libzstd.a")
+        # 转换为分号分隔的字符串
+        printf -v _curlLibs "%s;" "${_curlLibs_array[@]}"
+        _curlLibs="${_curlLibs%;}"  # 移除最后一个分号 
+        echo "osg==========_curlLibs=${_curlLibs}" 
+
+
         #  
         echo "=== cmake -S ${SrcDIR_lib} -B ${BuildDIR_lib}  --debug-find ......"
         TARGET_HOST=$(get_targetHost_byABIName "${CMAKE_ANDROID_ARCH_ABI}")
@@ -490,7 +503,20 @@ if [ "${isFinished_build_oearth}" != "true" ] ; then
     INSTALL_PREFIX_osg=${INSTALL_PREFIX_3rd}/osg/$CMAKE_ANDROID_ARCH_ABI
     export PKG_CONFIG_PATH="${INSTALL_PREFIX_osg}/lib/pkgconfig:$PKG_CONFIG_PATH"
     
-    cmkPrefixPath="${INSTALL_PREFIX_osg};${VCPKG_installed_LN}/share/libzip"
+    # ---- cmkPrefixPath
+    cmkPrefixPath_array=()
+    cmkPrefixPath_array+=("${INSTALL_PREFIX_osg}")
+    cmkPrefixPath_array+=(
+        "${VCPKG_installed_LN}/share/libzip"
+        # "${VCPKG_installed_LN}/share/curl"
+        # "${VCPKG_installed_LN}/share/gdal"
+        # "${VCPKG_installed_LN}/share/geos" 
+    ) 
+    # 使用;号连接数组元素.
+    # IFS是Shell中的“内部字段分隔符”（Internal Field Separator），默认值包含空格、制表符和换行符
+    cmkPrefixPath=$(IFS=";"; echo "${cmkPrefixPath_array[*]}")
+    echo "gg==========cmkPrefixPath=${cmkPrefixPath}" 
+ 
 
     # ------
     # 2. 清理环境
@@ -569,7 +595,7 @@ if [ "${isFinished_build_oearth}" != "true" ] ; then
         -DFREETYPE_INCLUDE_DIR=${VCPKG_installed_LN}/include      \
         -DFREETYPE_LIBRARY=${VCPKG_installed_LN}/lib/libfreetype.a \
         -DCURL_INCLUDE_DIR=${VCPKG_installed_LN}/include    \
-        -DCURL_LIBRARY=${VCPKG_installed_LN}/lib/libcurl-d.a \
+        -DCURL_LIBRARY=${VCPKG_installed_LN}/lib/libcurl.a \
         -DSQLite3_INCLUDE_DIR=${VCPKG_installed_LN}/include      \
         -DSQLite3_LIBRARY=${VCPKG_installed_LN}/lib/libsqlite3.a  \
         -DSQLite3_LIBRARIES=${VCPKG_installed_LN}/lib/libsqlite3.a \

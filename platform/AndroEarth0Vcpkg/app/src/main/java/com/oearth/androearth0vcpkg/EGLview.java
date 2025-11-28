@@ -1,4 +1,4 @@
-package com.oearth.androioearth01;
+package com.oearth.androearth0vcpkg;
 
 import android.content.Context;
 import android.graphics.PixelFormat;

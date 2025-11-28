@@ -7,7 +7,7 @@
 include("/home/abner/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake")
 
 # # 然后添加 ASAN 配置
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -fno-omit-frame-pointer -g -O1 -fPIC")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -fno-omit-frame-pointer -g -O0 -fPIC")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fno-omit-frame-pointer -g -O1 -fPIC")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fsanitize=address")
 set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -fsanitize=address")
@@ -17,5 +17,5 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address")
 # set(CMAKE_BUILD_TYPE Debug) 
  
 # 确保标志不被覆盖
-set(CMAKE_C_FLAGS_INIT "-fsanitize=address -fno-omit-frame-pointer -g -O1 -fPIC")
-set(CMAKE_CXX_FLAGS_INIT "-fsanitize=address -fno-omit-frame-pointer -g -O1 -fPIC")
+set(CMAKE_C_FLAGS_INIT "-fsanitize=address -fno-omit-frame-pointer -g -O0 -fPIC")
+set(CMAKE_CXX_FLAGS_INIT "-fsanitize=address -fno-omit-frame-pointer -g -O0 -fPIC")

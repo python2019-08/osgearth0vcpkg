@@ -5,3 +5,4 @@ ndk_asan_addrs/0ndk_asan_log.txt
 ndk_asan_addrs/1asan_addrs.txt
 ndk_asan_addrs/parsed.txt
 ndk_asan_addrs/tmp*
+ndk_asan_addrs/callstacks.md

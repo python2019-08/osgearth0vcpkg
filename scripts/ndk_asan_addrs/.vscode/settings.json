@@ -5,6 +5,7 @@
         "string_view": "cpp",
         "span": "cpp",
         "iterator": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "kdtree": "cpp"
     }
 }

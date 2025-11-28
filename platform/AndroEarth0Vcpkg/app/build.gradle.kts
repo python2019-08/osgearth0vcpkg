@@ -20,7 +20,7 @@ android {
             cmake {
                 cppFlags += "-std=c++17"
                 var libPath_vcpkg = "/home/abner/programs/vcpkg/installed"
-                val libPath = project.file("../../../build_sh/install/android-asan/3rd/").absolutePath // 动态获取路径
+                val libPath = project.file("../../../build_sh/install/android-asan/3rd/").absolutePath // asan-config-0
                 arguments += listOf(
                     "-DInstallRoot_3rd=$libPath",      // 动态传递路径
                     "-DInstallRoot_vcpkg=$libPath_vcpkg",      // 动态传递路径
