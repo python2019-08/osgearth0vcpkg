@@ -26,7 +26,7 @@ echo "============================================================="
 is_enable_ASAN=true    # false
 isRebuild=true
 # ----
-isFinished_build_osg=true
+isFinished_build_osg=false
 isFinished_build_oearth=false
 # echo "============================================================="
 # ###定义要编译的 Android ABI 列表::vcpkg默认只支持"arm64-v8a"和"x86_64"。

@@ -452,7 +452,7 @@ if(ANDROID)
                 ) 
     elseif(ENABLE_123ASAN) 
         target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
-            $<$<CONFIG:Debug>:-fsanitize=address  -fno-omit-frame-pointer>   )    
+            $<$<CONFIG:Debug>:-fsanitize=address -g -O0 -fno-omit-frame-pointer>   )    
         target_link_options(${CMAKE_PROJECT_NAME} PRIVATE 
                 $<$<CONFIG:Debug>:-fsanitize=address>  
                 )                                   

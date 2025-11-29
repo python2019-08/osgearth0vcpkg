@@ -53,6 +53,7 @@ android {
             isDefault = true // 启用 ASan
 
             isMinifyEnabled = false  // 关闭混淆
+            isShrinkResources = false
             isDebuggable = true
             isJniDebuggable = true    // 启用 NDK 调试
             proguardFiles(

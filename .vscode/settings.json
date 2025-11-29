@@ -408,6 +408,8 @@
         "device": "cpp",
         "graphicswindow": "cpp",
         "cameramanipulator": "cpp",
-        "__locale": "cpp"
+        "__locale": "cpp",
+        "pluginloader": "cpp",
+        "surfacenode": "cpp"
     }
 }
